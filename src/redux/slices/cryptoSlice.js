@@ -1,18 +1,18 @@
-import { creacteSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
   items: [],
 };
 
-const cryptoSlice = creacteSlice({
+const cryptoSlice = createSlice({
   name: "crypto",
   initialState,
   reducers: {
     setItems(state, action) {
       state.items = action.payload;
-    }
+    },
   },
-})
+});
 
 export const { setItems } = cryptoSlice.actions;
 

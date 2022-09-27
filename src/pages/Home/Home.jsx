@@ -1,9 +1,31 @@
 import React from "react";
 import cryptologo from "../../assets/img/cryptologo.png";
+import { useEffect } from "react";
 import { StyledHome } from "./styles";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setItems } from "../../redux/slices/cryptoSlice";
+import axios from "axios";
 
 export default function Home() {
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.crypto.items);
+
+  const fetchCryptos = async () => {
+    try {
+      const { data } = await axios.get("https://api.coincap.io/v2/assets");
+      dispatch(setItems(data));
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCryptos();
+  }, []);
+
+
+
   return (
     <StyledHome>
       <div className="container">
@@ -19,37 +41,45 @@ export default function Home() {
             </tr>
           </thead>
           <tbody className="table-body">
-            <tr class="item">
-              <td class="item-position">1</td>
+            <tr className="item">
+              <td className="item-position">1</td>
               <td>
-                <div class="item-title">
+                <div className="item-title">
                   <Link to={"/currency/name"} className="item-link">
-                    <img alt="coin_icon" class="item-image" src={cryptologo} />
-                    <span class="title-name">bitcoin</span>
-                    <span class="title-currency">BTC</span>
+                    <img
+                      alt="coin_icon"
+                      className="item-image"
+                      src={cryptologo}
+                    />
+                    <span className="title-name">bitcoin</span>
+                    <span className="title-currency">BTC</span>
                   </Link>
                 </div>
               </td>
-              <td class="item-price">$20&nbsp;261</td>
-              <td class="item-percent">8.16%</td>
-              <td class="item-volume">$49&nbsp;371&nbsp;566&nbsp;837</td>
-              <td class="item-market">$387&nbsp;627&nbsp;666&nbsp;362</td>
+              <td className="item-price">$20&nbsp;261</td>
+              <td className="item-percent">8.16%</td>
+              <td className="item-volume">$49&nbsp;371&nbsp;566&nbsp;837</td>
+              <td className="item-market">$387&nbsp;627&nbsp;666&nbsp;362</td>
             </tr>
-            <tr class="item">
-              <td class="item-position">1</td>
+            <tr className="item">
+              <td className="item-position">1</td>
               <td>
-                <div class="item-title">
+                <div className="item-title">
                   <Link to={"/currency/name"} className="item-link">
-                    <img alt="coin_icon" class="item-image" src={cryptologo} />
-                    <span class="title-name">bitcoin</span>
-                    <span class="title-currency">BTC</span>
+                    <img
+                      alt="coin_icon"
+                      className="item-image"
+                      src={cryptologo}
+                    />
+                    <span className="title-name">bitcoin</span>
+                    <span className="title-currency">BTC</span>
                   </Link>
                 </div>
               </td>
-              <td class="item-price">$20&nbsp;261</td>
-              <td class="item-percent">8.16%</td>
-              <td class="item-volume">$49&nbsp;371&nbsp;566&nbsp;837</td>
-              <td class="item-market">$387&nbsp;627&nbsp;666&nbsp;362</td>
+              <td className="item-price">$20&nbsp;261</td>
+              <td className="item-percent">8.16%</td>
+              <td className="item-volume">$49&nbsp;371&nbsp;566&nbsp;837</td>
+              <td className="item-market">$387&nbsp;627&nbsp;666&nbsp;362</td>
             </tr>
           </tbody>
         </table>

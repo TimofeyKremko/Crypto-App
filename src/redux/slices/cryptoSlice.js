@@ -10,7 +10,7 @@ const cryptoSlice = createSlice({
   reducers: {
     setItems(state, action) {
       state.items = action.payload;
-    },
+    }
   },
 });
 

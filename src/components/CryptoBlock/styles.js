@@ -5,10 +5,12 @@ export const StyledCryptoBlock = styled.tr`
   overflow: hidden;
   height: 75px;
   padding: 10px;
+  font-weight: 600;
+
   :hover {
-    background-color: #a0c539;
+    background-color: #c2e958;
   }
-  .item-link{
+  .item-link {
     color: #000;
     display: flex;
     align-items: center;
@@ -18,6 +20,7 @@ export const StyledCryptoBlock = styled.tr`
   .title-name {
     text-transform: capitalize;
   }
+
   .item-add {
     display: flex;
     align-items: center;
@@ -26,5 +29,4 @@ export const StyledCryptoBlock = styled.tr`
     padding: 30px 0;
     cursor: pointer;
   }
-  
 `;

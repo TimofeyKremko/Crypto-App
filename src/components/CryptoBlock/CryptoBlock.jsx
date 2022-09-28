@@ -31,7 +31,12 @@ const volume = +volumeUsd24Hr;
         </div>
       </td>
       <td className="item-price">$ {price.toFixed(2)}</td>
-      <td className="item-percent">{percent.toFixed(2)}%</td>
+      <td
+        className="item-percent"
+        style={percent > 0 ? { color: "green" } : { color: "red" }}
+      >
+        {percent.toFixed(2)}%
+      </td>
       <td className="item-volume">$ {volume.toFixed(2)}</td>
       <td className="item-add">
         <img src={plusIcon} alt="" />

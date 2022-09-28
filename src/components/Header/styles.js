@@ -16,21 +16,15 @@ export const StyledHeader = styled.header`
       flex-wrap: wrap;
     }
     &-crypto {
-      padding: 10px 0;
-
+      padding: 10px 70px;
       flex: 1;
       max-width: 800px;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       border-radius: 0 0 30px 30px;
       gap: 20px;
       background-color: #c2e958;
-      padding: 0 20px;
-      .crypto-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
+      
     }
     .crypto {
       &-value {

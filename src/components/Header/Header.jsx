@@ -1,12 +1,20 @@
 import React from "react";
 import logoSrc from "../../assets/img/logo.png";
 import caseSrc from "../../assets/img/case.svg";
-import cryptoLogo from "../../assets/img/cryptologo.png";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux/es/exports";
 
 import { StyledHeader } from "./styles";
+import HeaderCryptos from "../HeaderCrypto/HeaderCrypto";
 
 export default function Header() {
+  const items = useSelector((state) => state.crypto.items);
+
+
+  const topCryptos = items.slice(0, 3).map((item) => (
+    <HeaderCryptos key={item.id} {...item} />
+  ));
+
   return (
     <StyledHeader className="header">
       <div className="header-container">
@@ -16,24 +24,7 @@ export default function Header() {
           </div>
         </Link>
         <div className="header-crypto">
-          <div className="crypto-item">
-            <img src={cryptoLogo} alt="" />
-            <p className="crypto-title">
-              Bitcoin: <span className="crypto-value">191.023 $</span>
-            </p>
-          </div>
-          <div className="crypto-item">
-            <img src={cryptoLogo} alt="" />
-            <p className="crypto-title">
-              Bitcoin: <span className="crypto-value">191.023 $</span>
-            </p>
-          </div>
-          <div className="crypto-item">
-            <img src={cryptoLogo} alt="" />
-            <p className="crypto-title">
-              Bitcoin: <span className="crypto-value">191.023 $</span>
-            </p>
-          </div>
+          {topCryptos}
         </div>
         <Link to={"/case"} className="header-wallet">
           <div className="header-wallet">

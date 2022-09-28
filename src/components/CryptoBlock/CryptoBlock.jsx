@@ -12,6 +12,7 @@ export default function CryptoBlock({
   priceUsd,
   volumeUsd24Hr,
   changePercent24Hr,
+  marketCapUsd,
 }) {
   const dispatch = useDispatch();
 
@@ -27,6 +28,7 @@ export default function CryptoBlock({
       priceUsd,
       volumeUsd24Hr,
       changePercent24Hr,
+      marketCapUsd,
     };
     dispatch(setSelectedItem(item));
   };

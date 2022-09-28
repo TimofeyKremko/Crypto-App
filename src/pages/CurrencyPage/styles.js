@@ -13,8 +13,6 @@ export const StyledCurrencyPage = styled.div`
           background-color: #232325;
           max-width: 250px;
           padding: 30px;
-          display: flex;
-          align-items: center;
           border-radius: 0 0 50px 0;
           h2 {
             color: #c3e958;
@@ -23,6 +21,12 @@ export const StyledCurrencyPage = styled.div`
             font-weight: 700;
             font-size: 32px;
             line-height: 39px;
+          }
+          .rank-text {
+            margin-top: 10px;
+            padding-left: 10px;
+            color: #fff;
+            font-size: 24px;
           }
           img {
             width: 50px;
@@ -41,6 +45,7 @@ export const StyledCurrencyPage = styled.div`
         background-color: #fff;
         padding: 30px;
         .stats-list {
+          margin-bottom: 30px;
           display: flex;
           flex-direction: column;
           gap: 45px;

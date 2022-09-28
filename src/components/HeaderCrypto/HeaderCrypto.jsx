@@ -7,7 +7,8 @@ export default function HeaderCryptos({id, priceUsd, rank}) {
   return (
     <StyledHeaderCrypto>
       <p className="crypto-title">
-      <span>#{rank}:</span>  {id}: <span className="crypto-value">{price.toFixed(2)} $</span>
+        <span className="crypto-rank">#{rank}</span>: {id}:{" "}
+        <span className="crypto-value">{price.toFixed(2)} $</span>
       </p>
     </StyledHeaderCrypto>
   );

@@ -12,5 +12,8 @@ export const StyledHeaderCrypto = styled.div`
     &-value {
       font-weight: 700;
     }
+    &-rank {
+      font-weight: 700;
+    }
   }
 `;

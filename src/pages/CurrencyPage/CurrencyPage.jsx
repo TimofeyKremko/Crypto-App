@@ -5,14 +5,20 @@ import plusIconPath from "../../assets/img/plus.svg"
 import { useSelector } from "react-redux/es/exports";
 
 export default function CurrencyPage() {
+  const { rank, id, priceUsd, volumeUsd24Hr, marketCapUsd, changePercent24Hr } =
+    useSelector((state) => state.selectedItem.item);
 
+  const price = +priceUsd;
+  const volume = +volumeUsd24Hr;
+  const cap = +marketCapUsd;
+  const percent = +changePercent24Hr;
   return (
     <StyledCurrencyPage>
       <div className="currency-container">
         <div className="currency-content">
           <div className="currency-logo">
-            <img src={currencyLogo} alt="" />
-            <h2>bitcoin</h2>
+            <h2>{id}</h2>
+            <p className="rank-text">rank: #{rank}</p>
           </div>
           <div className="currency-info">
             <div className="chart"></div>
@@ -52,19 +58,24 @@ export default function CurrencyPage() {
           <ul className="stats-list">
             <li className="list-item">
               <p className="item-title">Market cap</p>
-              <p className="item-value">$ 19060,12</p>
+              <p className="item-value">$ {cap.toFixed(2)}</p>
             </li>
             <li className="list-item">
-              <p className="item-title">Fully Diluted Valuation</p>
-              <p className="item-value">$ 19060,12</p>
+              <p className="item-title">Price</p>
+              <p className="item-value">$ {price.toFixed(2)}</p>
             </li>
             <li className="list-item">
               <p className="item-title">24 Hour Trading Volume</p>
-              <p className="item-value">$ 19060,12</p>
+              <p className="item-value">$ {volume.toFixed(2)}</p>
             </li>
             <li className="list-item">
-              <p className="item-title">24h High</p>
-              <p className="item-value">$ 19060,12</p>
+              <p className="item-title">Change Percent</p>
+              <p
+                className="item-value"
+                style={percent > 0 ? { color: "green" } : { color: "red" }}
+              >
+                {percent.toFixed(2)} %
+              </p>
             </li>
           </ul>
           <div className="currency-add-btn">

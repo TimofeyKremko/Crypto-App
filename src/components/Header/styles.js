@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
+  background-color: #232325;
   .header {
     &-logo {
       padding: 10px 0;
-    } 
+    }
     &-container {
       position: relative;
       max-width: 1470px;
@@ -24,7 +25,6 @@ export const StyledHeader = styled.header`
       border-radius: 0 0 30px 30px;
       gap: 20px;
       background-color: #c2e958;
-      
     }
     .crypto {
       &-value {

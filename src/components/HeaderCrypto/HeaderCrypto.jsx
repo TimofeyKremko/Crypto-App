@@ -1,8 +1,7 @@
-import React from 'react'
-import { StyledHeaderCrypto } from './styles';
+import React from "react";
+import { StyledHeaderCrypto } from "./styles";
 
-export default function HeaderCryptos({id, priceUsd, rank}) {
-
+export default function HeaderCryptos({ id, priceUsd, rank }) {
   const price = +priceUsd;
   return (
     <StyledHeaderCrypto>

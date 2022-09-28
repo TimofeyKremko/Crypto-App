@@ -11,7 +11,9 @@ export default function Home() {
 
   const fetchCryptos = async () => {
     try {
-      const { data } = await axios.get("https://api.coincap.io/v2/assets");
+      const { data } = await axios.get(
+        "https://api.coincap.io/v2/assets?limit=20"
+      );
       dispatch(setItems(data.data));
     } catch (error) {
       console.log("Error", error);
@@ -20,10 +22,10 @@ export default function Home() {
 
   useEffect(() => {
     fetchCryptos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log(items);
-
 
   const renderItems = items.map((item) => (
     <CryptoBlock key={item.id} {...item} />

@@ -1,7 +1,6 @@
 import React from "react";
 import { StyledCurrencyPage } from "./styles";
-import currencyLogo from "../../assets/img/cryptologo.png";
-import plusIconPath from "../../assets/img/plus.svg"
+import plusIconPath from "../../assets/img/plus.svg";
 import { useSelector } from "react-redux/es/exports";
 
 export default function CurrencyPage() {

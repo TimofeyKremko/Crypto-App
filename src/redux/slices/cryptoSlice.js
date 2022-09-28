@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   items: [],
@@ -10,7 +10,7 @@ const cryptoSlice = createSlice({
   reducers: {
     setItems(state, action) {
       state.items = action.payload;
-    }
+    },
   },
 });
 

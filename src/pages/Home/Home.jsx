@@ -24,6 +24,7 @@ export default function Home() {
 
   console.log(items);
 
+
   const renderItems = items.map((item) => (
     <CryptoBlock key={item.id} {...item} />
   ));

@@ -1,7 +1,9 @@
 import React from "react";
 import { StyledCryptoBlock } from "./styles";
 import { Link } from "react-router-dom";
-import plusIcon from '../../assets/img/plus.svg'
+import plusIcon from "../../assets/img/plus.svg";
+import { setSelectedItem } from "../../redux/slices/selectedItemSlice";
+import { useDispatch } from "react-redux/es/exports";
 
 export default function CryptoBlock({
   rank,
@@ -11,20 +13,30 @@ export default function CryptoBlock({
   volumeUsd24Hr,
   changePercent24Hr,
 }) {
+  const dispatch = useDispatch();
 
-const price = +priceUsd;
-const percent = +changePercent24Hr;
-const volume = +volumeUsd24Hr;
+  const price = +priceUsd;
+  const percent = +changePercent24Hr;
+  const volume = +volumeUsd24Hr;
 
-
-
+  const onClickAdd = () => {
+    const item = {
+      rank,
+      id,
+      symbol,
+      priceUsd,
+      volumeUsd24Hr,
+      changePercent24Hr,
+    };
+    dispatch(setSelectedItem(item));
+  };
 
   return (
     <StyledCryptoBlock>
       <td className="item-position">{rank}</td>
       <td>
         <div className="item-title">
-          <Link to={"/currency/name"} className="item-link">
+          <Link to={`/${id}`} className="item-link" onClick={onClickAdd}>
             <span className="title-name">{id}</span>
             <span className="title-currency">{symbol}</span>
           </Link>

@@ -5,6 +5,9 @@ export const StyledCurrencyPage = styled.div`
     &-container {
       margin-top: 120px;
       display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 120px;
+
       .currency-content {
         background-color: #c3e958;
         flex: 1;

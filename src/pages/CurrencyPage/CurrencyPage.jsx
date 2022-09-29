@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { StyledCurrencyPage } from "./styles";
 import plusIconPath from "../../assets/img/plus.svg";
-import { useSelector } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
+import { setItemHistory } from "../../redux/slices/selectedItemSlice";
 import axios from "axios";
 
 import {
@@ -37,15 +38,12 @@ export const options = {
 };
 
 export default function CurrencyPage() {
-  const [historyData, setHistoryData] = useState([]);
+  const dispatch = useDispatch();
 
-  const dates = [];
-  const prices = [];
+  const { rank, id, priceUsd, volumeUsd24Hr, marketCapUsd, changePercent24Hr } =
+    useSelector((state) => state.selectedItem.item);
 
-  historyData.forEach((el) => {
-    dates.push(el.date.slice(0,10));
-    prices.push(el.priceUsd);
-  });
+  const { prices, dates } = useSelector((state) => state.selectedItem.history);
 
   const labels = [...dates];
 
@@ -59,8 +57,8 @@ export default function CurrencyPage() {
     ],
   };
 
-  const { rank, id, priceUsd, volumeUsd24Hr, marketCapUsd, changePercent24Hr } =
-    useSelector((state) => state.selectedItem.item);
+  console.log(dates);
+  console.log(prices);
 
   const getPriceData = async () => {
     try {
@@ -68,7 +66,8 @@ export default function CurrencyPage() {
         `https://api.coincap.io/v2/assets/${id}/history?interval=d1`
       );
       const fetchedData = data.data.slice(-20);
-      setHistoryData(fetchedData);
+      console.log(fetchedData);
+      dispatch(setItemHistory(fetchedData));
     } catch (error) {
       console.log("Error", error);
     }

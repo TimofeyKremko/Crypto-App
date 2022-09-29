@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledCurrencyPage = styled.div`
   .currency {
     &-container {
-      margin-top: 120px;
+      margin-top: 70px;
       display: flex;
       flex-wrap: wrap;
       margin-bottom: 120px;

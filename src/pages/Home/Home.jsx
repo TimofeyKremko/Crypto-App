@@ -13,9 +13,7 @@ export default function Home() {
 
   const fetchCryptos = async () => {
     try {
-      const { data } = await axios.get(
-        "https://api.coincap.io/v2/assets"
-      );
+      const { data } = await axios.get("https://api.coincap.io/v2/assets");
       dispatch(setItems(data.data));
     } catch (error) {
       console.log("Error", error);
@@ -44,14 +42,12 @@ export default function Home() {
     const [itemOffset, setItemOffset] = useState(0);
 
     useEffect(() => {
-      // Fetch items from another resources.
       const endOffset = itemOffset + itemsPerPage;
       console.log(`Loading items from ${itemOffset} to ${endOffset}`);
       setCurrentItems(items.slice(itemOffset, endOffset));
       setPageCount(Math.ceil(items.length / itemsPerPage));
     }, [itemOffset, itemsPerPage]);
 
-    // Invoke when user click to request another page.
     const handlePageClick = (event) => {
       const newOffset = (event.selected * itemsPerPage) % items.length;
       console.log(
@@ -75,10 +71,6 @@ export default function Home() {
       </>
     );
   }
-
-  // const renderItems = items.map((item) => (
-  //   <CryptoBlock key={item.id} {...item} />
-  // ));
 
   return (
     <StyledHome>

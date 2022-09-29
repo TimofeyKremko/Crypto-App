@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { StyledCurrencyPage } from "./styles";
 import plusIconPath from "../../assets/img/plus.svg";
 import { useDispatch, useSelector } from "react-redux/es/exports";

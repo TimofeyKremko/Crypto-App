@@ -35,7 +35,6 @@ export default function CryptoBlock({
 
   return (
     <StyledCryptoBlock>
-      <td className="item-position">{rank}</td>
       <td>
         <div className="item-title">
           <Link to={`/${id}`} className="item-link" onClick={onClickAdd}>
@@ -44,6 +43,8 @@ export default function CryptoBlock({
           </Link>
         </div>
       </td>
+      <td className="item-position">{rank}</td>
+
       <td className="item-price">$ {price.toFixed(2)}</td>
       <td
         className="item-percent"

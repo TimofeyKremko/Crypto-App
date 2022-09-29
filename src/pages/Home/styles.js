@@ -10,15 +10,18 @@ export const StyledHome = styled.div`
       text-align: center;
       border-collapse: collapse;
       ul {
-        margin: 50px auto;
+        margin: 50px auto 0;
         display: flex;
-        gap: 10px;
+        gap: 5px;
         justify-content: center;
         cursor: pointer;
         li {
+          width: 30px;
+          height: 30px;
           padding: 5px;
           border: 1px solid #232325;
           font-weight: 600;
+          border-radius: 50%;
           :hover {
             background-color: #c2e958;
           }

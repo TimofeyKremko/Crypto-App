@@ -65,11 +65,11 @@ export default function Home() {
         <Items currentItems={currentItems} />
         <ReactPaginate
           breakLabel="..."
-          nextLabel="next >"
+          nextLabel=">"
           onPageChange={handlePageClick}
           pageRangeDisplayed={5}
           pageCount={pageCount}
-          previousLabel="< previous"
+          previousLabel="<"
           renderOnZeroPageCount={null}
         />
       </>

@@ -39,10 +39,8 @@ export const options = {
 
 export default function CurrencyPage() {
   const dispatch = useDispatch();
-
   const { rank, id, priceUsd, volumeUsd24Hr, marketCapUsd, changePercent24Hr } =
     useSelector((state) => state.selectedItem.item);
-
   const { prices, dates } = useSelector((state) => state.selectedItem.history);
 
   const labels = [...dates];
@@ -57,16 +55,12 @@ export default function CurrencyPage() {
     ],
   };
 
-  console.log(dates);
-  console.log(prices);
-
   const getPriceData = async () => {
     try {
       const { data } = await axios.get(
         `https://api.coincap.io/v2/assets/${id}/history?interval=d1`
       );
       const fetchedData = data.data.slice(-20);
-      console.log(fetchedData);
       dispatch(setItemHistory(fetchedData));
     } catch (error) {
       console.log("Error", error);

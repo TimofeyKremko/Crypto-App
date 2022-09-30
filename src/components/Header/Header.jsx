@@ -9,7 +9,7 @@ import HeaderCryptos from "../HeaderCrypto/HeaderCrypto";
 
 export default function Header() {
   const items = useSelector((state) => state.crypto.items);
-  const totalWallet = useSelector((state) => state.wallet.totalPrice);
+  const {totalPrice, totalPercent} = useSelector((state) => state.wallet);
 
   const topCryptos = items
     .slice(0, 3)
@@ -28,7 +28,14 @@ export default function Header() {
           <div className="header-wallet">
             <img src={caseSrc} alt="" />
             <p className="wallet-value">
-              {totalWallet.toFixed(2)} $
+              $ {totalPrice.toFixed(2)}{" "}
+              <span
+                style={
+                  totalPercent > 0 ? { color: "#c3e958" } : { color: "red" }
+                }
+              >
+                ({totalPercent.toFixed(2)}%)
+              </span>
             </p>
           </div>
         </Link>

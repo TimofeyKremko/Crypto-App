@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   totalPrice: 0,
+  totalPercent: 0,
   items: [],
 };
 
@@ -16,6 +17,10 @@ const walletSlice = createSlice({
 
       } else {
         state.items.push(action.payload);
+        state.totalPercent = state.items.reduce((sum, obj) => {
+          const percent = +obj.changePercent24Hr
+          return percent + sum;
+        }, 0);
        
       }
        state.totalPrice = state.items.reduce((sum, obj) => {
@@ -25,10 +30,12 @@ const walletSlice = createSlice({
     removeItem(state, action) {
       state.items = state.items.filter((obj) => obj.id !== action.payload.itemId);
       state.totalPrice -= action.payload.fullPrice;
+      state.totalPercent -= action.payload.percent;
     },
     clearItems(state, action) {
       state.items = [];
       state.totalPrice = 0;
+      state.totalPercent = 0;
     },
   },
 });

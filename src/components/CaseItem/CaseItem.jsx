@@ -1,15 +1,14 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { StyledCaseItem } from "./styles"
 
-export default function CaseItem({ symbol, changePercent24Hr, priceUsd, value }) {
+export default function CaseItem({ changePercent24Hr, priceUsd, value,id }) {
 const price = +priceUsd;
 const percent = +changePercent24Hr;
   return (
     <StyledCaseItem>
       <td>
         <div className="item-title">
-          <span className="title-currency">{symbol}</span>
+          <span className="title-currency">{id}</span>
         </div>
       </td>
       <td className="item-position">{value}</td>

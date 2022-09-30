@@ -48,5 +48,8 @@ export const StyledCase = styled.div`
         }
       }
     }
+    .title-currency {
+      text-transform: capitalize;
+    }
   }
 `;

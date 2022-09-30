@@ -10,7 +10,6 @@ import ReactPaginate from "react-paginate";
 export default function Home() {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.crypto.items);
-
   const fetchCryptos = async () => {
     try {
       const { data } = await axios.get("https://api.coincap.io/v2/assets");
@@ -24,8 +23,6 @@ export default function Home() {
     fetchCryptos();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log(items);
 
   const Items = ({ currentItems }) => {
     return (
@@ -43,16 +40,12 @@ export default function Home() {
 
     useEffect(() => {
       const endOffset = itemOffset + itemsPerPage;
-      console.log(`Loading items from ${itemOffset} to ${endOffset}`);
       setCurrentItems(items.slice(itemOffset, endOffset));
       setPageCount(Math.ceil(items.length / itemsPerPage));
     }, [itemOffset, itemsPerPage]);
 
     const handlePageClick = (event) => {
       const newOffset = (event.selected * itemsPerPage) % items.length;
-      console.log(
-        `User requested page number ${event.selected}, which is offset ${newOffset}`
-      );
       setItemOffset(newOffset);
     };
 
@@ -63,7 +56,7 @@ export default function Home() {
           breakLabel="..."
           nextLabel=">"
           onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
+          pageRangeDisplayed={3}
           pageCount={pageCount}
           previousLabel="<"
           renderOnZeroPageCount={null}
@@ -86,7 +79,6 @@ export default function Home() {
               <th className="column-title">Market Cap</th>
             </tr>
           </thead>
-
           <tbody className="table-body">
             {<PaginatedItems itemsPerPage={10} />}
           </tbody>

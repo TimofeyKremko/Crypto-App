@@ -4,6 +4,8 @@ import plusIconPath from "../../assets/img/plus.svg";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { setItemHistory } from "../../redux/slices/selectedItemSlice";
 import axios from "axios";
+import Modal from "../../components/Modal/Modal";
+import { setOpenModal } from "../../redux/slices/modalSlice";
 
 import {
   Chart as ChartJS,
@@ -39,6 +41,7 @@ export const options = {
 
 export default function CurrencyPage() {
   const dispatch = useDispatch();
+  const opened = useSelector((state) => state.modal.opened);
   const { rank, id, priceUsd, volumeUsd24Hr, marketCapUsd, changePercent24Hr } =
     useSelector((state) => state.selectedItem.item);
   const { prices, dates } = useSelector((state) => state.selectedItem.history);
@@ -76,6 +79,8 @@ export default function CurrencyPage() {
   const percent = +changePercent24Hr;
   return (
     <StyledCurrencyPage>
+      {opened && <Modal />}
+
       <div className="currency-container">
         <div className="currency-content">
           <div className="currency-logo">
@@ -113,7 +118,10 @@ export default function CurrencyPage() {
               </p>
             </li>
           </ul>
-          <div className="currency-add-btn">
+          <div
+            className="currency-add-btn"
+            onClick={() => dispatch(setOpenModal(true))}
+          >
             <img src={plusIconPath} alt="" />
             <p className="btn-text">Add To Case</p>
           </div>

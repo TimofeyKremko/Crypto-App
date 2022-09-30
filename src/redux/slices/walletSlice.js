@@ -12,7 +12,6 @@ const walletSlice = createSlice({
     addItem(state, action) {
       const findItem = state.items.find((obj) => obj.id === action.payload.id);
       if (findItem) {
-        console.log(findItem.value)
         findItem.value += action.payload.value;
 
       } else {

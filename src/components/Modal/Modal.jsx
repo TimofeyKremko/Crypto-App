@@ -23,7 +23,6 @@ export default function Modal() {
     dispatch(addItem(cartItem));
 
     dispatch(setOpenModal(false))
-    console.log(cartItem)
   };
 
   return (

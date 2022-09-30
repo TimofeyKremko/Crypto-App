@@ -1,9 +1,23 @@
 import React from "react";
 import { StyledCaseItem } from "./styles"
+import { removeItem } from '../../redux/slices/walletSlice'
+import { useDispatch } from "react-redux";
 
 export default function CaseItem({ changePercent24Hr, priceUsd, value,id }) {
-const price = +priceUsd;
-const percent = +changePercent24Hr;
+const dispatch = useDispatch()
+
+  const price = +priceUsd;
+  const percent = +changePercent24Hr;
+  const walletPrice = price * value;
+
+  const deleteWalletItem = () => {
+    const deletedItem = {
+      itemId: id,
+      fullPrice: walletPrice
+    }
+    dispatch(removeItem(deletedItem));
+  }
+
   return (
     <StyledCaseItem>
       <td>
@@ -20,8 +34,11 @@ const percent = +changePercent24Hr;
       >
         {percent.toFixed(2)} %
       </td>
+      <td className="item-volume">{walletPrice.toFixed(2)} $</td>
       <td className="item-volume">
-        <button className="case-items">Remove</button>
+        <button className="remove-button" onClick={deleteWalletItem}>
+          Remove
+        </button>
       </td>
     </StyledCaseItem>
   );

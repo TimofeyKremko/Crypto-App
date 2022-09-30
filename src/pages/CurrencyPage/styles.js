@@ -69,6 +69,17 @@ export const StyledCurrencyPage = styled.div`
             }
           }
         }
+        .currency-add-btn {
+          display: flex;
+          gap: 10px;
+          border: 1px solid #232325;
+          align-items: center;
+          padding: 20px 10px;
+          justify-content: center;
+          :hover {
+            background-color: #c3e958;
+          }
+        }
       }
     }
   }

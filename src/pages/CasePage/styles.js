@@ -4,8 +4,12 @@ export const StyledCase = styled.div`
   .case-container {
     background-color: #fff;
     margin-top: 120px;
-
-    .case-top {
+    position: relative;
+    .trash-btn {
+      position: absolute;
+      right: 50px;
+      top: 30px;
+    } .case-top {
       background-color: #232325;
       max-width: 250px;
       padding: 30px;

@@ -10,14 +10,22 @@ const walletSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      // const fintItem = state.items.find((obj) => obj.id === action.payload.id);
-      // if (fintItem) {
-      // fintItem.count++;
-      // } else {
-      state.items.push(action.payload);
+      const findItem = state.items.find((obj) => obj.id === action.payload.id);
+      if (findItem) {
+        console.log(findItem.value)
+        findItem.value += action.payload.value;
+
+      } else {
+        state.items.push(action.payload);
+       
+      }
+       state.totalPrice = state.items.reduce((sum, obj) => {
+         return obj.priceUsd * obj.value + sum;
+       }, 0);
     },
     removeItem(state, action) {
-      state.items = state.items.filter((obj) => obj.id !== action.payload);
+      state.items = state.items.filter((obj) => obj.id !== action.payload.itemId);
+      state.totalPrice -= action.payload.fullPrice;
     },
     clearItems(state, action) {
       state.items = [];

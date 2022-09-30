@@ -29,4 +29,8 @@ export const StyledCaseItem = styled.tr`
     padding: 30px 0;
     cursor: pointer;
   }
+  .remove-button {
+    background: none;
+    padding: 10px 20px;
+  }
 `;

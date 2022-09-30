@@ -14,17 +14,16 @@ export default function Modal() {
     dispatch(setCurrencyValue(event.target.value));
   };
 
-  console.log(currencyAddValue);
 
   const addCurrencyToCase = () => {
     const cartItem = {
       ...item,
-      value: currencyAddValue,
+      value: +currencyAddValue,
     };
-    console.log(cartItem)
     dispatch(addItem(cartItem));
 
     dispatch(setOpenModal(false))
+    console.log(cartItem)
   };
 
   return (

@@ -76,7 +76,6 @@ export default function Home() {
               <th className="column-title">Price</th>
               <th className="column-title">24h</th>
               <th className="column-title">Volume(24h)</th>
-              <th className="column-title">Market Cap</th>
             </tr>
           </thead>
           <tbody className="table-body">

@@ -53,10 +53,7 @@ export default function CryptoBlock({
         {percent.toFixed(2)} %
       </td>
       <td className="item-volume">{volume.toFixed(2)} $</td>
-      <td className="item-add" >
-        <img src={plusIcon} alt="" />
-        <p className="add-text">Add To Case</p>
-      </td>
+      
     </StyledCryptoBlock>
   );
 }

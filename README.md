@@ -22,4 +22,5 @@
 </li>
   </ul>
 <h2>Preview</h2>
-![image_2022-10-01_12-38-20](https://user-images.githubusercontent.com/70627095/193403262-45ee642e-9a7d-4ebe-924e-22c97d94a794.png)
+<img src="https://user-images.githubusercontent.com/70627095/193403297-d566aa35-ca36-4c37-9427-b87975d27438.png">
+
